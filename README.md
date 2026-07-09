@@ -50,7 +50,7 @@ Promise:
 Beam ships an agent-drivable CLI for vector collection, ingest, query, index,
 and admin workflows while following the repository-wide CLI convention.
 Gate Inventory:
-- pending: projects/beam/tests/cli_contract.rs
+- pending: apps/beam/tests/cli_contract.rs
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -69,7 +69,7 @@ Promise:
 Beam remains stable under sustained vector ingest, query, index rebuild, and GPU
 memory pressure without serving corrupted index state.
 Gate Inventory:
-- pending: projects/beam/tests/long_running_stability.rs
+- pending: apps/beam/tests/long_running_stability.rs
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -88,7 +88,7 @@ Promise:
 Beam protects vector collections and GPU query APIs with explicit authorization,
 auditability, network policy, and managed secret rotation.
 Gate Inventory:
-- pending: projects/beam/tests/security_hardening.rs
+- pending: apps/beam/tests/security_hardening.rs
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -107,7 +107,7 @@ Promise:
 Beam keeps an explicit GPU/vector feature matrix against established vector
 systems, with comparison scope changed only when product requirements change.
 Gate Inventory:
-- pending: projects/beam/benchmark/competitor-feature-matrix.md
+- pending: apps/beam/benchmark/competitor-feature-matrix.md
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -126,8 +126,8 @@ Promise:
 Beam maintains a pinned competitor performance baseline and reruns external
 benchmarks only when the comparison scope changes or a human explicitly asks.
 Gate Inventory:
-- pending: projects/beam/benchmark/competitor-performance-baseline.md
-- pending: projects/beam/meter-beam-query.toml
+- pending: apps/beam/benchmark/competitor-performance-baseline.md
+- pending: apps/beam/meter-beam-query.toml
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -146,8 +146,8 @@ Promise:
 Beam manages GPU-native vector indexes with explicit memory-tier and rebuild
 semantics rather than treating vector search as a Lumen side path.
 Gate Inventory:
-- pending: projects/beam/tests/gpu_vector_index.rs
-- pending: projects/beam/meter-beam-gpu.toml
+- pending: apps/beam/tests/gpu_vector_index.rs
+- pending: apps/beam/meter-beam-gpu.toml
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -166,7 +166,7 @@ Promise:
 Beam ingests vectors in batches and rebuilds/promotes ANN indexes without
 serving partially corrupted index state.
 Gate Inventory:
-- pending: projects/beam/tests/batch_ingest_rebuild.rs
+- pending: apps/beam/tests/batch_ingest_rebuild.rs
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -185,8 +185,8 @@ Promise:
 Beam serves vector nearest-neighbor queries with explicit recall and latency
 gates, keeping lexical/perceptual/duplicate search outside its scope.
 Gate Inventory:
-- pending: projects/beam/tests/vector_query.rs
-- pending: projects/beam/meter-beam-query.toml
+- pending: apps/beam/tests/vector_query.rs
+- pending: apps/beam/meter-beam-query.toml
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -205,7 +205,7 @@ Promise:
 Beam exposes a compact h2c/OpenAPI API list for vector collection, index,
 ingest, query, and operator workflows.
 Gate Inventory:
-- pending: projects/beam/tests/http_api.rs
+- pending: apps/beam/tests/http_api.rs
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -224,7 +224,7 @@ Promise:
 Beam runs as a dedicated k8s-native GPU vector service with operator-managed
 GPU scheduling, storage, backup policy, and index lifecycle.
 Gate Inventory:
-- pending: projects/beam/k8s
+- pending: apps/beam/k8s
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
@@ -243,7 +243,7 @@ Promise:
 Beam replicates collection metadata and index lifecycle ownership through raft
 while GPU index bytes remain service-owned data-plane state.
 Gate Inventory:
-- pending: projects/beam/tests/raft_metadata.rs
+- pending: apps/beam/tests/raft_metadata.rs
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
