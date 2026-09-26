@@ -47,7 +47,7 @@ Beam projects the shared stateful-service workload baseline.
 - Root WI: #769
 - Surfaces: Durable index, checkpoint state, and stateful replica lifecycle.
 - Gate — behavior: pending stateful service workload projection
-- Source: `pending: apps/beam/tests/persistence.rs`
+- Source: `pending: tests/persistence.rs`
 - Evidence: pending stateful service workload projection
 
 ### CLI Interface
@@ -60,13 +60,13 @@ and admin workflows while following the repository-wide CLI convention.
   ingest/query/index, and admin/debug verbs.
 - Gate — behavior: pending CLI convention gate - required standard verbs,
   vector workflow ergonomics, and offline agent docs
-- Gate: passing: apps/beam/tests/cli_contract.rs (R1–R6, `cargo test -p beam`
+- Gate: passing: tests/cli_contract.rs (R1–R6, `cargo test -p beam`
   green)
 
 | Work Root | Kind | WI | Gate / Evidence |
 |---|---|---:|---|
-| beam-cli-shell | change | #772 | apps/beam/tests/cli_contract.rs (R1–R6 green) |
-| beam-cli-convention-and-vector-verbs | change | #772 | apps/beam/tests/cli_contract.rs (R1–R6 green) |
+| beam-cli-shell | change | #772 | tests/cli_contract.rs (R1–R6 green) |
+| beam-cli-convention-and-vector-verbs | change | #772 | tests/cli_contract.rs (R1–R6 green) |
 | beam-vector-verbs | epic | #769 | pending vector ingest/query/index verbs |
 
 ### Long-Running Stability
@@ -79,7 +79,7 @@ GPU memory pressure without serving corrupted index state.
   query executor, snapshot, and recovery paths.
 - Gate — stability: pending long-running vector gate - soak, restart, GPU
   memory recovery, rebuild safety, bounded memory, and backpressure
-- Source: `pending: apps/beam/tests/long_running_stability.rs`
+- Source: `pending: tests/long_running_stability.rs`
 - Evidence: pending long-running vector gate
 
 ### Security Hardening
@@ -92,7 +92,7 @@ authorization, auditability, network policy, and managed secret rotation.
   isolation, network policy, audit events, secret rotation, and request limits.
 - Gate — behavior: pending security gate - auth failure cases, collection
   isolation, audit emission, secret rotation, and abuse limits
-- Source: `pending: apps/beam/tests/security_hardening.rs`
+- Source: `pending: tests/security_hardening.rs`
 - Evidence: pending security hardening gate
 
 ### Competitor Feature Parity
@@ -107,7 +107,7 @@ systems, with comparison scope changed only when product requirements change.
   vector ingest, ANN index build/load, filters, recall diagnostics, rebuild,
   and GPU scheduling
 - Source:
-  `landed: apps/beam/benchmark/competitor-feature-matrix.md (parity checklist + gaps)`
+  `landed: benchmark/competitor-feature-matrix.md (parity checklist + gaps)`
 - Evidence: pending competitor feature gate
 
 ### Competitor Performance
@@ -121,8 +121,8 @@ benchmarks only when the comparison scope changes or a human explicitly asks.
 - Gate — efficiency: pending competitor performance gate - pinned external
   baseline and Beam-owned vector measurements
 - Source:
-  `landed: apps/beam/benchmark/competitor-performance-baseline.md (beam-GPU beats faiss-CPU batched flat at n>=100k`,
-  `independently re-verified)`, `pending: apps/beam/meter-beam-query.toml`
+  `landed: benchmark/competitor-performance-baseline.md (beam-GPU beats faiss-CPU batched flat at n>=100k`,
+  `independently re-verified)`, `pending: meter-beam-query.toml`
 
 | Work Root | Kind | WI | Gate / Evidence |
 |---|---|---:|---|
@@ -146,16 +146,16 @@ semantics rather than treating vector search as a Lumen side path.
 - Gate — efficiency: pending GPU meter gate - throughput, memory, and latency
   floors
 - Source:
-  `passing: apps/beam/tests/gpu_matches_cpu.rs (GPU flat top-k == CPU oracle, L2/Dot/Cosine)`,
-  `passing: apps/beam/tests/ivf_recall.rs (IVF-flat exact at full probe`,
+  `passing: tests/gpu_matches_cpu.rs (GPU flat top-k == CPU oracle, L2/Dot/Cosine)`,
+  `passing: tests/ivf_recall.rs (IVF-flat exact at full probe`,
   `recall grows with nprobe`, `GPU ADC == CPU ADC`, `scaling)`,
-  `pending: apps/beam/tests/gpu_vector_index.rs (durable index build/load/rebuild lifecycle)`,
-  `pending: apps/beam/meter-beam-gpu.toml`
+  `pending: tests/gpu_vector_index.rs (durable index build/load/rebuild lifecycle)`,
+  `pending: meter-beam-gpu.toml`
 
 | Work Root | Kind | WI | Gate / Evidence |
 |---|---|---:|---|
-| gpu-flat-knn-wgpu-metal | change | #769 | apps/beam/tests/gpu_matches_cpu.rs (Apple M1 Max/Metal, recall 1.000) |
-| gpu-ivf-pq-ann | change | #769 | apps/beam/tests/ivf_recall.rs (IVF-flat 2.7× faster lossless; IVF-PQ ADC exact, recall tunable) |
+| gpu-flat-knn-wgpu-metal | change | #769 | tests/gpu_matches_cpu.rs (Apple M1 Max/Metal, recall 1.000) |
+| gpu-ivf-pq-ann | change | #769 | tests/ivf_recall.rs (IVF-flat 2.7× faster lossless; IVF-PQ ADC exact, recall tunable) |
 | gpu-ann-index-lifecycle | epic | #769 | pending durable segments, memory tiers, rebuild, and GPU meter gates |
 
 ### Batch Ingest And Rebuild
@@ -168,7 +168,7 @@ serving partially corrupted index state.
   and index promotion controls.
 - Gate — behavior: pending ingest/rebuild gate - idempotent batch ingest,
   compaction, rebuild, and promotion
-- Source: `pending: apps/beam/tests/batch_ingest_rebuild.rs`
+- Source: `pending: tests/batch_ingest_rebuild.rs`
 - Evidence: pending ingest/rebuild conformance gate
 
 ### Vector Query API
@@ -182,8 +182,8 @@ gates, keeping lexical/perceptual/duplicate search outside its scope.
 - Gate — behavior: pending vector query gate - top-k, filters, recall fixtures,
   and deterministic pagination
 - Gate — efficiency: pending GPU query gate - p50/p95/top-k throughput
-- Source: `pending: apps/beam/tests/vector_query.rs`,
-  `pending: apps/beam/meter-beam-query.toml`
+- Source: `pending: tests/vector_query.rs`,
+  `pending: meter-beam-query.toml`
 - Evidence: pending vector query and GPU query gates
 
 ### HTTP/2 API List
@@ -211,8 +211,8 @@ structured log line. Server-Timing per-response latency attribution (the shared
   OpenAPI, and route inventory
 - Gate: passing (trace-context accept/generate): `bash scripts/faberline-core-test.sh service-http`
   (faberline/core crates/service-http/src/transport.rs) — beam wires
-  `service_http::trace_layer()` in apps/beam/src/service.rs
-- Source: `pending: apps/beam/tests/http_api.rs`,
+  `service_http::trace_layer()` in src/service.rs
+- Source: `pending: tests/http_api.rs`,
   `no beam-owned trace-context test exists yet`
 - Evidence: pending h2c/OpenAPI route-list gate
 
@@ -227,7 +227,7 @@ GPU scheduling, storage, backup policy, and index lifecycle.
 - Gate — behavior: pending kustomize/operator render gate - CRD, operator, and
   GPU instance render
 - Gate — stability: pending kind/GPU deployment dogfood
-- Source: `pending: apps/beam/k8s`
+- Source: `pending: k8s`
 - Evidence: pending k8s render/dogfood gates
 
 ### Primary Replicas
@@ -240,5 +240,5 @@ while GPU index bytes remain service-owned data-plane state.
   state over `core/raft-core` and `core/raft-runtime`.
 - Gate — stability: pending raft vector failover gate - metadata and index
   lifecycle state survive failover
-- Source: `pending: apps/beam/tests/raft_metadata.rs`
+- Source: `pending: tests/raft_metadata.rs`
 - Evidence: pending raft metadata failover gate

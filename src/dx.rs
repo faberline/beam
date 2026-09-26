@@ -57,9 +57,9 @@ pub fn render_release_dockerfile(version: Option<&str>) -> String {
     let template = strip_ownership_markers(include_str!("../Dockerfile.release"));
     let mut out = String::new();
     for line in template.lines() {
-        if line.starts_with("#   docker build -f apps/beam/Dockerfile.release -t beam:") {
+        if line.starts_with("#   docker build -f Dockerfile.release -t beam:") {
             out.push_str(&format!(
-                "#   docker build -f apps/beam/Dockerfile.release -t beam:{version} \\"
+                "#   docker build -f Dockerfile.release -t beam:{version} \\"
             ));
         } else if line.starts_with("#     --build-arg BEAM_VERSION=") {
             out.push_str(&format!("#     --build-arg BEAM_VERSION={tag} ."));

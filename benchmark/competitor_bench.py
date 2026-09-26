@@ -34,9 +34,9 @@ the CPU competitor on this Mac".
 
 Run:
     python3 -m venv /tmp/beambench && /tmp/beambench/bin/pip install faiss-cpu numpy
-    /tmp/beambench/bin/python projects/beam/benchmark/competitor_bench.py
+    /tmp/beambench/bin/python benchmark/competitor_bench.py
     # smaller/faster sweep:
-    /tmp/beambench/bin/python projects/beam/benchmark/competitor_bench.py --sizes 10000,100000
+    /tmp/beambench/bin/python benchmark/competitor_bench.py --sizes 10000,100000
 """
 from __future__ import annotations
 

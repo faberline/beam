@@ -19,7 +19,7 @@ use clap::{Args, Parser, Subcommand, ValueEnum};
 /// values are stamped by `build.rs`.
 const TOOL: cli_std::ToolInfo = cli_std::ToolInfo {
     project: "beam",
-    repo: "chrischeng-c4/axiom",
+    repo: "faberline/beam",
     target: env!("BEAM_TARGET"),
     version: env!("CARGO_PKG_VERSION"),
     git_sha: env!("BEAM_GIT_SHA"),
@@ -52,7 +52,7 @@ const TOPICS: &[cli_std::llm::Topic] = &[
             verified against the flat oracle. `beam bench --index \
             flat|ivfflat|ivfpq|hnsw` runs the parity, recall, pruning, and timing \
             demo. Still to come: durable segments, an HTTP/2 query API, and k8s. \
-            Capability roots live in projects/beam/README.md (epic #769).\n",
+            Capability roots live in README.md (epic #769).\n",
     },
     cli_std::llm::Topic {
         id: "boundaries",

@@ -1,4 +1,4 @@
-// SPEC-MANAGED: apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-memory-footprint
+// SPEC-MANAGED: external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-memory-footprint
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec beam-competitor-performance-memory-footprint
@@ -7,7 +7,7 @@
 // @contract search-efficiency-memory-footprint
 // @category efficiency
 // @required_for_production true
-// @command cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario out-of-core
+// @command vat run ec-efficiency-meter --scenario out-of-core
 // AW-EC-END
 
 // Contract: Host RAM consumption is bounded strictly to the size of the `HnswNavigator` graph and compressed PQ codes.
@@ -16,8 +16,7 @@
 #[test]
 #[ignore = "AW EC gate: run via `aw health --verify-ec` or `cargo test -- --ignored`"]
 fn beam_competitor_performance_memory_footprint() {
-    let command =
-        "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario out-of-core";
+    let command = "vat run ec-efficiency-meter --scenario out-of-core";
     let id = "beam-competitor-performance-memory-footprint";
     let mut root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     while !root.join(".aw").is_dir() {

@@ -27,9 +27,9 @@ capability_id = "competitor-performance"
 claim_id = "competitive-throughput-ddd-zero-cost"
 contract_id = "search-efficiency-ddd-overhead"
 category = "efficiency"
-td_ref = "apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-ddd-overhead"
-test_path = "apps/beam/tests/benchmark_beam_competitor_performance_ddd.rs"
-command = "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario ddd-overhead"
+td_ref = "external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-ddd-overhead"
+test_path = "tests/benchmark_beam_competitor_performance_ddd.rs"
+command = "vat run ec-efficiency-meter --scenario ddd-overhead"
 required_for_production = true
 assertions = [
     "The Domain Service `PipelineScheduler` introduces less than 1% latency overhead compared to a tightly-coupled monolithic pipeline.",
@@ -42,9 +42,9 @@ capability_id = "competitor-performance"
 claim_id = "competitive-throughput-gpu-scaling"
 contract_id = "search-efficiency-gpu-scaling"
 category = "efficiency"
-td_ref = "apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-gpu-batch-scaling"
-test_path = "apps/beam/tests/benchmark_beam_competitor_performance_gpu.rs"
-command = "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario gpu-batching"
+td_ref = "external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-gpu-batch-scaling"
+test_path = "tests/benchmark_beam_competitor_performance_gpu.rs"
+command = "vat run ec-efficiency-meter --scenario gpu-batching"
 required_for_production = true
 assertions = [
     "System throughput (QPS) scales linearly as `QueryBatch` size increases from 1 to 512.",
@@ -58,9 +58,9 @@ capability_id = "competitor-performance"
 claim_id = "competitive-throughput-out-of-core-scaling"
 contract_id = "search-efficiency-memory-footprint"
 category = "efficiency"
-td_ref = "apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-memory-footprint"
-test_path = "apps/beam/tests/benchmark_beam_competitor_performance_memory.rs"
-command = "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario out-of-core"
+td_ref = "external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-memory-footprint"
+test_path = "tests/benchmark_beam_competitor_performance_memory.rs"
+command = "vat run ec-efficiency-meter --scenario out-of-core"
 required_for_production = true
 assertions = [
     "Host RAM consumption is bounded strictly to the size of the `HnswNavigator` graph and compressed PQ codes.",
@@ -74,9 +74,9 @@ capability_id = "competitor-performance"
 claim_id = "competitive-throughput-gate-saturate-four-pillars"
 contract_id = "search-efficiency-batched-rag-throughput"
 category = "efficiency"
-td_ref = "apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-pipeline-overlap"
-test_path = "apps/beam/tests/benchmark_beam_competitor_performance_overlap.rs"
-command = "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario pipeline-overlap"
+td_ref = "external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-pipeline-overlap"
+test_path = "tests/benchmark_beam_competitor_performance_overlap.rs"
+command = "vat run ec-efficiency-meter --scenario pipeline-overlap"
 required_for_production = true
 assertions = [
     "Async `IoUringVectorRepository` fetches Uncompressed Vectors from NVMe concurrently with `WgpuDistanceEngine` calculations.",
@@ -87,18 +87,18 @@ assertions = [
 [[aw.ec.generated.tool_manifests]]
 id = "beam-meter-search-efficiency-memory"
 tool = "meter"
-path = "apps/beam/meter-search-efficiency-memory.toml"
-td_ref = "apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-meter-search-efficiency-memory"
+path = "meter-search-efficiency-memory.toml"
+td_ref = "external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-meter-search-efficiency-memory"
 content_digest = "sha256:299ea288175df539407a17eed2d53a8f5b387a300281b12d06dab2fc9c4fb3ae"
-command = "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter"
+command = "vat run ec-efficiency-meter"
 category = "efficiency"
 
 [[aw.ec.generated.tool_manifests]]
 id = "beam-meter-search-efficiency-throughput"
 tool = "meter"
-path = "apps/beam/meter-search-efficiency-throughput.toml"
-td_ref = "apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-meter-search-efficiency-throughput"
+path = "meter-search-efficiency-throughput.toml"
+td_ref = "external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-meter-search-efficiency-throughput"
 content_digest = "sha256:eecd8c3ae34b939e19a0fade95ea5e1c4770cfa2f34fbe17f089f922dbb7eff0"
-command = "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter"
+command = "vat run ec-efficiency-meter"
 category = "efficiency"
 # AW-EC-END

@@ -373,13 +373,13 @@ Metal portability). The single-query rows at the top of this doc are unchanged
 
 ## Reproducer
 
-- **Competitor (CPU):** `projects/beam/benchmark/competitor_bench.py` — seeded
+- **Competitor (CPU):** `benchmark/competitor_bench.py` — seeded
   faiss `IndexFlatL2` + `IndexIVFPQ` (auto-falls-back to numpy brute-force if
   faiss is unavailable). Run:
 
   ```bash
   python3 -m venv /tmp/beambench && /tmp/beambench/bin/pip install faiss-cpu numpy
-  /tmp/beambench/bin/python projects/beam/benchmark/competitor_bench.py \
+  /tmp/beambench/bin/python benchmark/competitor_bench.py \
       --sizes 10000,100000,1000000
   ```
 

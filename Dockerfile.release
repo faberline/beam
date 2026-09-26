@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1
 # Production image for beam — downloads a PUBLISHED release binary into a distroless runtime.
 #
-#   docker build -f apps/beam/Dockerfile.release -t beam:0.4.7 \
+#   docker build -f Dockerfile.release -t beam:0.4.7 \
 #     --build-arg BEAM_VERSION=beam@0.4.7 .
 
 FROM debian:bookworm-slim AS fetch
 ARG BEAM_VERSION=beam@0.4.7
-ARG BEAM_REPO=chrischeng-c4/axiom
+ARG BEAM_REPO=faberline/beam
 ARG TARGETARCH
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl \
     && rm -rf /var/lib/apt/lists/*

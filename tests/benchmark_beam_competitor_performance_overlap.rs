@@ -1,4 +1,4 @@
-// SPEC-MANAGED: apps/beam/external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-pipeline-overlap
+// SPEC-MANAGED: external-contracts/competitor-performance/efficiency/beam-high-throughput.md#beam-competitor-performance-pipeline-overlap
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec beam-competitor-performance-pipeline-overlap
@@ -7,7 +7,7 @@
 // @contract search-efficiency-batched-rag-throughput
 // @category efficiency
 // @required_for_production true
-// @command cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario pipeline-overlap
+// @command vat run ec-efficiency-meter --scenario pipeline-overlap
 // AW-EC-END
 
 // Contract: Async `IoUringVectorRepository` fetches Uncompressed Vectors from NVMe concurrently with `WgpuDistanceEngine` calculations.
@@ -16,8 +16,7 @@
 #[test]
 #[ignore = "AW EC gate: run via `aw health --verify-ec` or `cargo test -- --ignored`"]
 fn beam_competitor_performance_pipeline_overlap() {
-    let command =
-        "cd apps/beam && ../../target/debug/vat run ec-efficiency-meter --scenario pipeline-overlap";
+    let command = "vat run ec-efficiency-meter --scenario pipeline-overlap";
     let id = "beam-competitor-performance-pipeline-overlap";
     let mut root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     while !root.join(".aw").is_dir() {
